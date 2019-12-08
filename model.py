@@ -11,7 +11,7 @@ class Sightings:
         self.conn.commit()
         self.conn.close()
 
-    def getTop10(self,name)
+    def getTop10(self,name):
         rows = self.cur.execute("SELECT * from SIGHTINGS Where SIGHTINGS.NAME =? ORDER BY SIGHTINGS.sighted DESC LIMIT 10",(name,))
         return rows
 
