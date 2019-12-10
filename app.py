@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from service import sightingsService
 
 app = Flask(__name__)
 
@@ -13,3 +14,10 @@ def add_headers(response):
 @app.route("/")
 def hello():
     return "Hello World!"
+
+@app.route("/top/<name>", methods=["GET"])
+def list_top10(name):
+    return jsonify(sightingsService().topTen(name))
+
+if __name__ == "__main__":        # on running python app.py
+    app.run()                     # run the flask app
