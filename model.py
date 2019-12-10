@@ -15,6 +15,14 @@ class Sightings:
         rows = self.cur.execute("SELECT * from SIGHTINGS Where SIGHTINGS.NAME =? ORDER BY SIGHTINGS.sighted DESC LIMIT 10",(name,)).fetchall()
         return rows
 
+    def create(self,params):
+        query = f'insert into SIGHTINGS ' \
+                f'(Name, Person, Location, Sighted) ' \
+                f'values ("{params.get("Name")}","{params.get("Person")}",' \
+                f'"{params.get("Location")}","{params.get("Sighted")}")'
+        self.conn.execute(query)
+        return
 
+    
 
 

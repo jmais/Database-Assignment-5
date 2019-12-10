@@ -8,4 +8,6 @@ class sightingsService:
     def topTen(self, name):
         return self.model.getTop10(name)
 
+    def create(self,params):
+        return self.model.create(params)
     

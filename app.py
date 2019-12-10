@@ -19,5 +19,11 @@ def hello():
 def list_top10(name):
     return jsonify(sightingsService().topTen(name))
 
+@app.route("/input", methods=["POST"])
+def insert_sighting():
+    sightingsService().create(request.form)
+    return "added to Database"
+
+
 if __name__ == "__main__":        # on running python app.py
     app.run()                     # run the flask app
