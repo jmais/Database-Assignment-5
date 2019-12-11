@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 from flask import Flask, request, jsonify
 from flask import render_template
+=======
+from flask import Flask, request, jsonify, render_template, redirect, url_for
+>>>>>>> Added login page and login logic
 from service import sightingsService
 from service import flowerService
 
@@ -20,6 +24,16 @@ def hello():
 @app.route('/addSighting')
 def addSighting():
     return render_template('adding.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('home'))
+    return render_template('login.html', error=error)
 
 @app.route("/top/<name>", methods=["GET"])
 def list_top10(name):
