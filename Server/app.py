@@ -4,7 +4,7 @@ from service import sightingsService
 from service import flowerService
 
 app = Flask(__name__)
-
+names = flowerService().getNames()
 
 @app.after_request
 def add_headers(response):
@@ -15,8 +15,11 @@ def add_headers(response):
 
 @app.route("/")
 def hello():
-    names = flowerService().getNames()
     return render_template('home.html', names = names)
+
+@app.route('/addSighting')
+def addSighting():
+    return render_template('adding.html')
 
 @app.route("/top/<name>", methods=["GET"])
 def list_top10(name):
@@ -24,6 +27,7 @@ def list_top10(name):
 
 @app.route("/input", methods=["POST"])
 def insert_sighting():
+    print(request.form)
     sightingsService().create(request.form)
     return "added to Database"
 

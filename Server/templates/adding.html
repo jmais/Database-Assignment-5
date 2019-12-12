@@ -3,5 +3,15 @@
         <title>Adding Sighting</title>
     </head>
     <h2>Fill out the form below to add a sighting to the database</h2>
-    <form></form>
+    <form action="{{url_for('insert_sighting')}}" method="POST">
+        Flower Name<br>
+        <input type='text' name="Name"></br>
+        Person Name<br>
+        <input type='text' name='Person'></br>
+        Location<br>
+        <input type='text' name='Location'></br>
+        Date Sighted yyyy-mm-dd<br>
+        <input type='text' name='Sighted'></br>
+        <input type="submit" value='Submit'>
+    </form>
 </html>
