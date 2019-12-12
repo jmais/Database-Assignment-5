@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from service import sightingsService
+from service import flowerService
 
 app = Flask(__name__)
 
@@ -13,7 +14,7 @@ def add_headers(response):
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return jsonify(flowerService().getNames())
 
 @app.route("/top/<name>", methods=["GET"])
 def list_top10(name):

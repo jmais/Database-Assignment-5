@@ -1,4 +1,5 @@
 from model import Sightings
+from model import Flowers
 
 
 class sightingsService:
@@ -10,4 +11,12 @@ class sightingsService:
 
     def create(self,params):
         return self.model.create(params)
+
+
+class flowerService:
+    def __init__(self):
+        self.model = Flowers()
+
+    def getNames(self):
+        return self.model.getNames()
     

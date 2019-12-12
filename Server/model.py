@@ -23,6 +23,21 @@ class Sightings:
         self.conn.execute(query)
         return
 
-    
+
+class Flowers:
+    def __init__(self):
+        self.conn = sqlite3.connect('flowers2019.db')
+        self.cur = self.conn.cursor()
+
+    def __del__(self):
+        # body of destructor
+        self.conn.commit()
+        self.conn.close()
+
+    def getNames(self):
+        rows = self.cur.execute("SELECT comname From flowers").fetchall()
+        return rows
+
+
 
 
