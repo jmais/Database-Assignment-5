@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Flowers Database</title>
+    </head>
+    <body>
+        <h2>Please Choose a flower to see the top 10 most recent sightings</h2>
+        <select name = "flowers" id='flowerName-Select'>
+        {% for name in names %}
+            <option value = "{{name[0]}}">{{name[0]}}</option>
+        {% endfor %}
+        </select>
+        <ul id = "top-list"></ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src = "{{url_for('static', filename='homescript.js')}}"></script> 
+
+
+    </body>
+</html>
