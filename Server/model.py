@@ -38,6 +38,11 @@ class Flowers:
         rows = self.cur.execute("SELECT comname From flowers").fetchall()
         return rows
 
-
+    def update(self, params):
+        query = f'UPDATE FLOWERS' \
+                f'SET GENUS = {params.get("genus")}, SPECIES = {params.get("species")}, COMNAME = {params.get("common name")}' \
+                f'WHERE old.comname = new.comname;'
+        self.conn.execute(query)
+        return
 
 
