@@ -1,3 +1,4 @@
+from flask import Flask
 from flask import Flask, request, jsonify, render_template, redirect, url_for
 from service import sightingsService
 from service import flowerService
