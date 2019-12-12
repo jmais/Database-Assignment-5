@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-from flask import Flask, request, jsonify
 from flask import render_template
-=======
 from flask import Flask, request, jsonify, render_template, redirect, url_for
->>>>>>> Added login page and login logic
 from service import sightingsService
 from service import flowerService
 
