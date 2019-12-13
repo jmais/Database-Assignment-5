@@ -40,9 +40,15 @@ class Flowers:
 
     def update(self, params):
         query = f'UPDATE FLOWERS' \
-                f'SET GENUS = {params.get("genus")}, SPECIES = {params.get("species")}, COMNAME = {params.get("common name")}' \
-                f'WHERE old.comname = new.comname;'
+                f'SET GENUS = "{params.get("Genus")}", SPECIES = "{params.get("Species")}",' \
+                f'COMNAME = "{params.get("CommonName")}"' \
+                f'WHERE COMNAME = "{params.get("Flowers")}";'
         self.conn.execute(query)
         return
+
+    def select(self):
+       return self.cur.execute('SELECT * FROM FLOWERS').fetchall()
+
+    
 
 

@@ -13,12 +13,16 @@ def add_headers(response):
     return response
 
 @app.route("/")
-def hello():
+def home():
     return render_template('home.html', names = names)
 
 @app.route('/addSighting')
 def addSighting():
     return render_template('adding.html')
+@app.route('/showAll')
+def selectAll():
+    return jsonify(flowerService().select())
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -39,6 +43,19 @@ def insert_sighting():
     print(request.form)
     sightingsService().create(request.form)
     return "added to Database"
+
+
+@app.route("/updated",methods=["POST"])
+def edit_flower():
+    print(request.form)
+    flowerService().update(request.form)
+    return "Updated Flower"
+
+
+@app.route("/editFlower",methods=["GET"])
+def editFlower():
+    return render_template('updating.html', names=names)
+
 
 
 if __name__ == "__main__":        # on running python app.py
