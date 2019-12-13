@@ -2,16 +2,20 @@
     <head>
         <title>Update Sighting</title>
     </head>
-    <h2>Fill out the form below to update a sighting to the database</h2>
-    <form action="{{url_for('insert_sighting')}}" method="POST">
-        Flower Name<br>
-        <input type='text' name="Name"></br>
-        Person Name<br>
-        <input type='text' name='Person'></br>
-        Location<br>
-        <input type='text' name='Location'></br>
-        Date Sighted yyyy-mm-dd<br>
-        <input type='text' name='Sighted'></br>
+    <h2>Fill out the form below to update a Flower in the database</h2>
+    <form action="{{url_for('edit_flower')}}" method="POST">
+            Flower you are Updating<br>
+            <select name = "Flowers" id='flowerName-Select'>
+                    {% for name in names %}
+                        <option value = "{{name[0]}}">{{name[0]}}</option>
+                    {% endfor %}
+                    </select>
+        <br>Flower Genus<br>
+        <input type='text' name="Genus"></br>
+        Flower Species<br>
+        <input type='text' name='Species'></br>
+        Flower CommonName<br>
+        <input type='text' name='CommonName'></br>
         <input type="submit" value='Submit'>
     </form>
 </html>

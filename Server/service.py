@@ -20,3 +20,9 @@ class flowerService:
     def getNames(self):
         return self.model.getNames()
     
+    def update(self,params):
+        return self.model.update(params)
+    
+    def select(self):
+        return self.model.select()
+    
