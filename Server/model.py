@@ -39,11 +39,11 @@ class Flowers:
         return rows
 
     def update(self, params):
-        query = f'UPDATE FLOWERS' \
-                f'SET GENUS = "{params.get("Genus")}", SPECIES = "{params.get("Species")}",' \
-                f'COMNAME = "{params.get("CommonName")}"' \
-                f'WHERE COMNAME = "{params.get("Flowers")}";'
-        self.conn.execute(query)
+        query = f'UPDATE flowers ' \
+                f'SET genus = "{params.get("Genus")}",species = "{params.get("Species")}", ' \
+                f'comname = "{params.get("CommonName")}" ' \
+                f'WHERE comname = "{params.get("Flowers")}";'
+        self.cur.execute(query)
         return
 
     def select(self):
